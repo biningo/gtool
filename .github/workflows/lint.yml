@@ -1,0 +1,17 @@
+name: Lint
+
+on:
+  push:
+    paths-ignore:
+      - "**.md"
+
+jobs:
+  golang-ci:
+    name: GolangCi-Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: latest
